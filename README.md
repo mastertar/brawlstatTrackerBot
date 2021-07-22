@@ -1,2 +1,2 @@
 # Brawlstat Tracker Bot
-## This project was made using Python and discord.js
+## This project was made using Python and discord.py
