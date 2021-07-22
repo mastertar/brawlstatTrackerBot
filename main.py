@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+brawl_stars_api_key = os.getenv('BRAWL_STARS_API_KEY')
 
 intents = discord.Intents.default()
 intents.members = True
@@ -20,14 +21,12 @@ async def on_ready():
   print(bot.user)
   await bot.change_presence(activity=discord.Game("!help | Playing Brawl Stars"))
 
-# @bot.event
-# async def on_message(message):
-#   #auto respond & prefixless commands
-#   if not message.author.bot and message.author != bot.user:
-#     if bot.user.mentioned_in(message):
-#         await message.channel.send('Hello! My prefix is `b!` and my help command is, `b!help`!')
-
-brawl_stars_api_key = 'api key is retrievable at developer.brawlstars.com'
+@bot.event
+async def on_message(message):
+  #auto respond & prefixless
+  if not message.author.bot and message.author != bot.user:
+    if bot.user.mentioned_in(message):
+        await message.channel.send('Hello! My prefix is `!` and my help command is, `!help`!')
 
 @bot.command()
 async def player(message, id: str):
