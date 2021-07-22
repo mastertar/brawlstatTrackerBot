@@ -16,6 +16,7 @@ brawl_stars_api_key = os.getenv('BRAWL_STARS_API_KEY')
 intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix='!', intents=intents, case_insensitive=True)
+@bot.event
 async def on_ready():
   print("I'm in")
   print(bot.user)
@@ -27,6 +28,7 @@ async def on_message(message):
   if not message.author.bot and message.author != bot.user:
     if bot.user.mentioned_in(message):
         await message.channel.send('Hello! My prefix is `!` and my help command is, `!help`!')
+  await bot.process_commands(message)
 
 @bot.command()
 async def player(message, id: str):
