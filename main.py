@@ -7,6 +7,10 @@ from discord.ext import commands
 import requests
 import aiohttp
 
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.default()
 intents.members = True
@@ -125,5 +129,5 @@ async def club(message, id: str):
   await message.send(embed=dogfact)
 
 keep_alive()
-token = "token"
+token = "ODM1NjM0MjI3ODkwMjI1MjQz.YISTBQ.ahu5VnI-zDVAWkpQGm1FjHbJp74"
 bot.run(token)
