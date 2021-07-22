@@ -130,5 +130,4 @@ async def club(message, id: str):
   await message.send(embed=dogfact)
 
 keep_alive()
-token = "ODM1NjM0MjI3ODkwMjI1MjQz.YISTBQ.ahu5VnI-zDVAWkpQGm1FjHbJp74"
-bot.run(token)
+bot.run(TOKEN)
